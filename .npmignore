@@ -1,0 +1,7 @@
+node_modules/
+.webpack-cache/
+src/
+*.log
+.DS_Store
+.gitignore
+tsconfig.json

@@ -1,0 +1,54 @@
+h3 SSH Auth Socket
+
+.alert.alert-info.mb-3
+    i.fas.fa-info-circle
+    span.ms-2 Configure a custom SSH authentication socket path for all SSH connections
+
+.form-line
+    .header
+        .title Socket Path
+        .description Path to the SSH agent socket file
+    input.form-control(
+        type='text',
+        placeholder='/path/to/ssh/agent.sock',
+        [(ngModel)]='config.store.sshAuthSocket.socketPath',
+        (ngModelChange)='config.save()',
+        style='width: 100%; max-width: 800px;'
+    )
+
+div
+    .mt-3
+        .d-flex.gap-2.flex-wrap
+            button.btn.btn-secondary(
+                (click)='importFromConfig()'
+            )
+                i.fas.fa-file-import
+                span.ms-1 Import from ~/.ssh/config
+
+            button.btn.btn-secondary(
+                (click)='testConnection()',
+                [disabled]='testing || !config.store.sshAuthSocket.socketPath'
+            )
+                i.fas.fa-vial(*ngIf='!testing')
+                i.fas.fa-spinner.fa-spin(*ngIf='testing')
+                span.ms-1 Test Connection
+
+    .mt-3(*ngIf='testResult')
+        .alert.alert-success(*ngIf='testResult === "success"')
+            i.fas.fa-check-circle
+            span.ms-2 Connection successful!
+        .alert.alert-danger(*ngIf='testResult === "failed"')
+            i.fas.fa-times-circle
+            span.ms-2 Connection failed. Please check the socket path.
+
+.mt-4
+    h5 Tips
+    ul.small.text-muted
+        li Use this plugin to configure SSH agents like Secretive, 1Password, or GPG
+        li The socket path can be found in your ~/.ssh/config file under the IdentityAgent directive
+        li Common socket locations:
+            ul
+                li Secretive: ~/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+                li 1Password: ~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock
+                li GPG: ~/.gnupg/S.gpg-agent.ssh
+        li Changes take effect immediately for new SSH connections

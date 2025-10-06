@@ -1,0 +1,56 @@
+{
+  "name": "tabby-ssh-auth-socket",
+  "version": "1.0.0",
+  "description": "Tabby plugin to configure custom SSH auth socket path for Secretive, 1Password, and other SSH agents",
+  "keywords": [
+    "tabby-plugin",
+    "ssh",
+    "agent",
+    "secretive",
+    "1password",
+    "auth-socket"
+  ],
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build": "webpack --progress",
+    "watch": "webpack --progress --watch"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "author": "Artem Yurov",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArtemYurov/tabby-ssh-auth-socket.git"
+  },
+  "homepage": "https://github.com/ArtemYurov/tabby-ssh-auth-socket#readme",
+  "devDependencies": {
+    "@angular/animations": "^16.1.0",
+    "@angular/common": "^16.1.0",
+    "@angular/core": "^16.1.0",
+    "@angular/forms": "^16.1.0",
+    "@angular/platform-browser": "^16.1.0",
+    "@ng-bootstrap/ng-bootstrap": "^15.0.0",
+    "@types/node": "^20.0.0",
+    "css-loader": "^6.8.0",
+    "pug": "^3.0.0",
+    "pug-loader": "^2.4.0",
+    "rxjs": "^7.8.0",
+    "sass": "^1.63.0",
+    "sass-loader": "^13.3.0",
+    "style-loader": "^3.3.0",
+    "tabby-core": "*",
+    "tabby-settings": "*",
+    "ts-loader": "^9.4.0",
+    "typescript": "^5.1.0",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.0"
+  },
+  "peerDependencies": {
+    "tabby-core": "*",
+    "tabby-settings": "*"
+  }
+}
