@@ -2,6 +2,8 @@
 
 A Tabby terminal plugin to configure custom SSH authentication socket paths for use with SSH agents like Secretive, 1Password, GPG, and others.
 
+<img width="622" height="438" alt="image" src="https://github.com/user-attachments/assets/27ebfe2d-af1c-43cb-83a5-58aa54f25d6f" />
+
 ## Features
 
 - Configure custom `SSH_AUTH_SOCK` environment variable for all SSH connections
